@@ -29,7 +29,13 @@ const miApp = {
         if (clienteBuscado.length === 0) return null
         return clienteBuscado[0]
     },
-    crearCliente: function( cliente ) {},
+    crearCliente: function( cliente ) {
+        if (!this.barrioCubierto(cliente.barrio)) return false
+        if (!!this.buscarCliente(cliente.usuario)) return false
+
+        this.clientes.push(cliente)
+        return true
+    },
     buscarPedido: function( id ) {},
     crearPedido: function( pedido ) {},
     buscarPedidoCliente: function( usuario ) {},
@@ -41,5 +47,16 @@ const miApp = {
 // console.log(miApp.agregarBarrio('Palermo')) // Devuelve false
 // console.log(miApp.buscarCliente('PatriciaG')) // Devuelve cliente
 // console.log(miApp.buscarCliente('no-existe-este-cliente')) // Devuelve false
+/* console.log(miApp.crearCliente({
+                    usuario: `clienteNuevo${Date.now()}`,
+                    mail: "clienteNuevo@mail.com",
+                    barrio: BARRIOS_DB[0]
+                })) */ // Devuelve true 
+/* console.log(miApp.crearCliente({
+                    usuario: `clienteNuevo${Date.now()}`,
+                    mail: "clienteNuevo@mail.com",
+                    barrio: `Barrio No existente${Date.now()}`
+                }))*/ // Devuelve false 
+// console.log(miApp.crearCliente(CLIENTES_DB[0])) // Devuelve false 
 
 module.exports = miApp
