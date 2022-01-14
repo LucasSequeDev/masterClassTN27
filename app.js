@@ -14,6 +14,13 @@ const miApp = {
     barrios: BARRIOS_DB,
     clientes: CLIENTES_DB,
     pedidos: PEDIDOS_DB,
+    barrioCubierto: function( barrio ) {},
+    agregarBarrio: function( barrio ) {},
+    buscarCliente: function( usuario ) {},
+    crearCliente: function( cliente ) {},
+    buscarPedido: function( id ) {},
+    crearPedido: function( pedido ) {},
+    buscarPedidoCliente: function( usuario ) {},
 }
 
 module.exports = miApp
