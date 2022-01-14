@@ -39,5 +39,7 @@ const miApp = {
 // console.log(miApp.barrioCubierto('Palermo')) // Devuelve true
 // console.log(miApp.agregarBarrio('San Miguel')) // Devuelve true
 // console.log(miApp.agregarBarrio('Palermo')) // Devuelve false
+// console.log(miApp.buscarCliente('PatriciaG')) // Devuelve cliente
+// console.log(miApp.buscarCliente('no-existe-este-cliente')) // Devuelve false
 
 module.exports = miApp
