@@ -1,4 +1,8 @@
 // Aqui comienza todo!
-const miApp = {}
+const miApp = {
+    barrios: [],
+    clientes: [],
+    pedidos: [],
+}
 
 module.exports = miApp
