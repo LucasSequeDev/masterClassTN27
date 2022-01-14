@@ -14,7 +14,9 @@ const miApp = {
     barrios: BARRIOS_DB,
     clientes: CLIENTES_DB,
     pedidos: PEDIDOS_DB,
-    barrioCubierto: function( barrio ) {},
+    barrioCubierto: function( barrioBuscado ) {
+        return !!this.barrios.find( barrio => barrio === barrioBuscado )
+    },
     agregarBarrio: function( barrio ) {},
     buscarCliente: function( usuario ) {},
     crearCliente: function( cliente ) {},
@@ -22,5 +24,8 @@ const miApp = {
     crearPedido: function( pedido ) {},
     buscarPedidoCliente: function( usuario ) {},
 }
+
+// console.log(miApp.barrioCubierto('San Miguel')) // Devuelve false
+// console.log(miApp.barrioCubierto('Palermo')) // Devuelve true
 
 module.exports = miApp
