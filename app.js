@@ -36,17 +36,25 @@ const miApp = {
         this.clientes.push(cliente)
         return true
     },
-    buscarPedido: function( id ) {},
+    buscarPedido: function( id ) {
+        let pedidoBuscado = this.pedidos.filter( pedido => pedido.id === id )
+
+        if (pedidoBuscado.length === 0) return null
+        return pedidoBuscado[0]
+    },
     crearPedido: function( pedido ) {},
     buscarPedidoCliente: function( usuario ) {},
 }
 
 // console.log(miApp.barrioCubierto('San Miguel')) // Devuelve false
 // console.log(miApp.barrioCubierto('Palermo')) // Devuelve true
+
 // console.log(miApp.agregarBarrio('San Miguel')) // Devuelve true
 // console.log(miApp.agregarBarrio('Palermo')) // Devuelve false
+
 // console.log(miApp.buscarCliente('PatriciaG')) // Devuelve cliente
 // console.log(miApp.buscarCliente('no-existe-este-cliente')) // Devuelve false
+
 /* console.log(miApp.crearCliente({
                     usuario: `clienteNuevo${Date.now()}`,
                     mail: "clienteNuevo@mail.com",
@@ -58,5 +66,9 @@ const miApp = {
                     barrio: `Barrio No existente${Date.now()}`
                 }))*/ // Devuelve false 
 // console.log(miApp.crearCliente(CLIENTES_DB[0])) // Devuelve false 
+
+// console.log(miApp.buscarPedido(PEDIDOS_DB[0].id)) // Devuelve pedido
+// console.log(miApp.buscarPedido('no-existe-este-id')) // Devuelve null
+
 
 module.exports = miApp
