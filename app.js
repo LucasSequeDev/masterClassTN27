@@ -23,7 +23,12 @@ const miApp = {
         this.barrios.push(barrioNuevo)
         return true
     },
-    buscarCliente: function( usuario ) {},
+    buscarCliente: function( usuario ) {
+        let clienteBuscado = this.clientes.filter( cliente => cliente.usuario === usuario )
+
+        if (clienteBuscado.length === 0) return null
+        return clienteBuscado[0]
+    },
     crearCliente: function( cliente ) {},
     buscarPedido: function( id ) {},
     crearPedido: function( pedido ) {},
