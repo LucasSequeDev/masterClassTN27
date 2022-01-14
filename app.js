@@ -17,7 +17,12 @@ const miApp = {
     barrioCubierto: function( barrioBuscado ) {
         return !!this.barrios.find( barrio => barrio === barrioBuscado )
     },
-    agregarBarrio: function( barrio ) {},
+    agregarBarrio: function( barrioNuevo ) {
+        if (this.barrioCubierto(barrioNuevo)) return false
+
+        this.barrios.push(barrioNuevo)
+        return true
+    },
     buscarCliente: function( usuario ) {},
     crearCliente: function( cliente ) {},
     buscarPedido: function( id ) {},
@@ -27,5 +32,7 @@ const miApp = {
 
 // console.log(miApp.barrioCubierto('San Miguel')) // Devuelve false
 // console.log(miApp.barrioCubierto('Palermo')) // Devuelve true
+// console.log(miApp.agregarBarrio('San Miguel')) // Devuelve true
+// console.log(miApp.agregarBarrio('Palermo')) // Devuelve false
 
 module.exports = miApp
