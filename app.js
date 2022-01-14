@@ -42,7 +42,14 @@ const miApp = {
         if (pedidoBuscado.length === 0) return null
         return pedidoBuscado[0]
     },
-    crearPedido: function( pedido ) {},
+    crearPedido: function( pedido ) {
+        if (!!this.buscarPedido(pedido.id)) return false
+        if (!this.barrioCubierto(pedido.barrio)) return false
+        if (!this.buscarCliente(pedido.usuario)) return false
+        
+        this.pedidos.push(pedido)
+        return true
+    },
     buscarPedidoCliente: function( usuario ) {},
 }
 
