@@ -1,16 +1,13 @@
-const fs = require("fs");
-BD_Barrios = JSON.parse(fs.readFileSync("./BaseDatos/barrios.json","utf-8"));
-BD_Clientes = JSON.parse(fs.readFileSync("./BaseDatos/clientes.json","utf-8"));
-BD_Pedidos = JSON.parse(fs.readFileSync("./BaseDatos/pedidos.json","utf-8"));   
+const {DATABASE} = require("./Funciones/leerArchivos")
 
 let {barrioCubierto,agregarBarrio} = require("./Funciones/barriosModule")
 let {buscarCliente,crearCliente} = require("./Funciones/clientesModule")
 let {buscarPedido, crearPedido, buscarPedidoPorCliente} = require("./Funciones/pedidosModule")
 
 const miApp = {
-    barrios: BD_Barrios,
-    clientes: BD_Clientes,
-    pedidos: BD_Pedidos,
+    barrios: DATABASE.barrios,
+    clientes: DATABASE.clientes,
+    pedidos: DATABASE.pedidos,
     barrioCubierto: barrioCubierto,
     agregarBarrio: agregarBarrio,
     buscarCliente: buscarCliente,
